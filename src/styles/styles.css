@@ -1,0 +1,49 @@
+*{
+    font-family: "Raleway";
+}
+#content{
+    height: 100vh;
+    display: flex;
+}
+
+#sidebar{
+    flex: 1;
+    padding: 20px 20px 10px 20px;
+    background: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#sidebar>*{
+    color: white;
+}
+
+h1{
+    font-size: 2.6rem;
+}
+
+h2{
+    font-size: 1.6rem;
+}
+
+#board{
+    flex: 3;
+}
+
+#addProject{
+    text-align: center;
+    border-radius: 40px;
+    align-self: flex-end;
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    background-color: aliceblue;
+    color: black;
+    transition: 0.5s ease;
+}
+#addProject:hover{
+    background-color: antiquewhite;
+    border: gold;
+
+}

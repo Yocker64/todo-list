@@ -9,21 +9,22 @@
     <div id="content">
       <div id="sidebar">
         <div id="projects">
-          <h1><u>Projects</u></h1>
-          <div id="home">
-            <h2>Home</h2>
+          
+          <div class="projects-header">
+            <h1><u>Projects</u></h1>
+            <img src="img/add.svg" alt="add project" id="addProjectIcon">
           </div>
+          
         </div>
         <div id="notes">
           <h1><u>Notes</u></h1>
         </div>
-        <button id="addProject">Add</button>
       </div>
       <div id="board"></div>
     </div>
-    <div class="pop-up">
-      <form action="" id="taskForm">
-        <legend>Add Task</legend>
+    <div class="pop-up" id="taskForm"> 
+      <form action="" >
+        <legend>Task Info</legend>
         <div class="form-row">
           <label for="taskName">Name*</label>
           <input
@@ -31,11 +32,11 @@
             name="taskName"
             id="taskName"
             required
-            placeholder="Cool Task"
+            placeholder="Cool Task"form
           />
         </div>
         <div class="form-row">
-          <label for="dateTask">Date*</label>
+          <label for="dateTask">Due date*</label>
           <input
             type="date"
             name="dateTask"
@@ -52,7 +53,7 @@
             <option value="3">Very Very Very Important</option>
           </select>
         </div>
-        <button id="addTask">Add Task</button>
+        <button id="addTask" class="addButton">Add Project</button>
       </form>
     </div>
   </body>

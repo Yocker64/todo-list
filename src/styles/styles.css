@@ -12,14 +12,56 @@
     flex: 1;
     padding: 20px 20px 10px 20px;
     background: rebeccapurple;
-    display: flex;
+    display: grid;
     flex-direction: column;
     justify-content: space-between;
+    grid-template-columns: 100%;
 }
 
 #sidebar>*{
     color: white;
 }
+
+.project-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#addProjectIcon{
+  height: 40px;
+  filter: invert(100%) brightness(200%);
+  transition: 0.5s ease;
+}
+
+#addProjectIcon:hover{
+  height: 45px;
+  filter: invert(100%) brightness(200%);
+}
+
+.project-header-icons{
+  display: grid;
+  grid-template-columns: 20px 20px 20px;
+  gap: 20px;
+}
+
+.project-header-icons>img{
+  filter: invert(20%) sepia(40%) saturate(2000%) hue-rotate(260deg) brightness(90%) contrast(100%);
+  transition: filter 0.3s ease;
+  
+}
+
+.project-header-icons:hover .icon {
+  filter: invert(100%) brightness(200%);
+  
+}
+
 
 h1{
     font-size: 2.6rem;
@@ -30,7 +72,7 @@ h2{
 }
 
 #board{
-    flex: 3;
+    flex: 4;
 }
 
 #addProject{
@@ -52,7 +94,7 @@ h2{
 }
 
 .pop-up {
-    display: block;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -69,21 +111,26 @@ h2{
   
   .pop-up>form {
     background-color: white;
-    padding: 40px;
+    padding: 30px 50px;
     border-radius: 10px;
-    top: 32vh;
+    top: 30vh;
     left: 30vw;
     width: 40vw;
-    height: 36vh;
+    height: 40vh;
     position: relative;
     display: flex;
     align-items: center;
 
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .pop-up>*{
     color: black;
+  }
+
+  legend{
+    font-size: 2rem;
+
   }
 
   .form-row{
@@ -93,4 +140,8 @@ h2{
   }
   .form-row > label{
     width: 100px;
+  }
+
+  .addButton{
+    padding: 10px 40px;
   }

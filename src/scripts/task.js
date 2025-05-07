@@ -11,7 +11,7 @@ export function createProjectElement(projectName) {
   project.className = "project";
 
   project.innerHTML = `<div class="project-header">
-      <h2 data-action="displayTasks"></h2>
+      <h2></h2>
       <div class="project-header-icons">
         <img src="${deleteIcon}" alt="delete icon" class="delete icon" data-action="delete">
         <img src="${editIcon}" alt="edit icon" class="edit icon" data-action="edit">
@@ -22,23 +22,20 @@ export function createProjectElement(projectName) {
   // Safely insert the task name to avoid XSS
   project.querySelector("h2").textContent = projectName;
   // Add one event listener to the icon container
-  const iconContainer = project.querySelector(".project-header");
+  const iconContainer = project.querySelector(".project-header-icons");
   iconContainer.addEventListener("click", (event) => addFunctionality(event, projectId));
   projects.appendChild(project);
 }
 
 // Calls a method depending on the img clicked
 function addFunctionality(event,elementID) {
-  const actionableElement = event.target.closest("[data-action]");
-  // Just in case, you never know
-  if (!actionableElement) return;
+  const imgButton = event.target.closest("img");
+  // Just in case; you never know.
+  if (!imgButton) return;
 
-  const action = actionableElement.dataset.action;
+  const action = imgButton.dataset.action;
 
   switch (action) {
-    case "displayTasks":
-      displayTasks();
-      break;
     case "delete":
       handleDelete(elementID);
       break;
@@ -51,11 +48,6 @@ function addFunctionality(event,elementID) {
     default:
       alert("This is not a valid button!");
   }
-}
-
-function displayTasks() {
-  console.log('Displaying tasks');
-  
 }
 
 function handleDelete(projectID) {

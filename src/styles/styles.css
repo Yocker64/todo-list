@@ -1,5 +1,6 @@
 *{
     font-family: "Raleway";
+    
 }
 
 
@@ -75,24 +76,6 @@ h2{
     flex: 4;
 }
 
-#addProject{
-    cursor: pointer;
-    text-align: center;
-    border-radius: 40px;
-    align-self: flex-end;
-    width: 80px;
-    height: 80px;
-    font-size: 24px;
-    background-color: aliceblue;
-    color: black;
-    transition: 0.5s ease;
-}
-#addProject:hover{
-    background-color: antiquewhite;
-    border: gold;
-
-}
-
 .pop-up {
     display: none;
     position: fixed;
@@ -134,14 +117,22 @@ h2{
   }
 
   .form-row{
+    width: 100%;
     align-self: self-start;
     display: flex;
+    gap: 20px;
     
+  }
+
+   .button-row{
+    justify-content: center;
   }
   .form-row > label{
     width: 100px;
   }
 
-  .addButton{
+  .button{
+    width: 10vw;
+    height: 5vh;
     padding: 10px 40px;
   }

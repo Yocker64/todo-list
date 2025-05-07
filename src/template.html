@@ -22,38 +22,41 @@
       </div>
       <div id="board"></div>
     </div>
-    <div class="pop-up" id="taskForm"> 
+    <div class="pop-up" id="projectForm"> 
       <form action="" >
         <legend>Task Info</legend>
         <div class="form-row">
-          <label for="taskName">Name*</label>
+          <label for="projectName">Name*</label>
           <input
             type="text"
-            name="taskName"
-            id="taskName"
+            name="projectName"
+            id="projectName"
             required
             placeholder="Cool Task"form
           />
         </div>
         <div class="form-row">
-          <label for="dateTask">Due date*</label>
+          <label for="projectDueDate">Due date*</label>
           <input
             type="date"
-            name="dateTask"
-            id="dateTask"
+            name="projectDueDate"
+            id="projectDueDate"
             required
             placeholder="12/24/2024"
           />
         </div>
-        <div class="form-row">
+        <!-- <div class="form-row">
           <label for="dateTask">Importance</label>
           <select name="importance" id="importance">
             <option value="1">Important</option>
             <option value="2">Very Important</option>
             <option value="3">Very Very Very Important</option>
           </select>
+        </div> -->
+        <div class="form-row button-row">
+          <button id="addProject" class="button">Add Project</button>
+          <button id="closeProjectForm" class="button">Cancel</button>
         </div>
-        <button id="addTask" class="addButton">Add Project</button>
       </form>
     </div>
   </body>

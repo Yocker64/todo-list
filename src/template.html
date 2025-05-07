@@ -59,5 +59,43 @@
         </div>
       </form>
     </div>
+
+    <div class="pop-up" id="taskForm"> 
+      <form action="" >
+        <legend>Task Info</legend>
+        <div class="form-row">
+          <label for="taskName">Name*</label>
+          <input
+            type="text"
+            name="taskName"
+            id="taskName"
+            required
+            placeholder="Cool Task"form
+          />
+        </div>
+        <div class="form-row">
+          <label for="taskDueDate">Due date*</label>
+          <input
+            type="date"
+            name="taskDueDate"
+            id="taskDueDate"
+            required
+            placeholder="12/24/2024"
+          />
+        </div>
+        <div class="form-row">
+          <label for="dateTask">Importance</label>
+          <select name="importance" id="importance">
+            <option value="1">Important</option>
+            <option value="2">Very Important</option>
+            <option value="3">Very Very Very Important</option>
+          </select>
+        </div>
+        <div class="form-row button-row">
+          <button id="addTask" class="button">Add Task</button>
+          <button id="closeTaskForm" class="button">Cancel</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

@@ -8,6 +8,7 @@ export function createProjectElement(projectName) {
   const projectId = crypto.randomUUID();
   const project = document.createElement("div");
   project.id = projectId;
+  projectTasks[projectId] = [];
   project.className = "project";
 
   project.innerHTML = `<div class="project-header">
@@ -27,10 +28,10 @@ export function createProjectElement(projectName) {
   projects.appendChild(project);
 }
 
-// Calls a method depending on the img clicked
+// Calls a method depending on the element clicked
 function addFunctionality(event,elementID) {
   const actionableElement = event.target.closest("[data-action]");
-  // Just in case, you never know
+  // Just in case. You never know!
   if (!actionableElement) return;
 
   const action = actionableElement.dataset.action;
@@ -46,12 +47,13 @@ function addFunctionality(event,elementID) {
       handleEdit();
       break;
     case "add":
-      handleAdd();
+      handleAdd(elementID);
       break;
     default:
       alert("This is not a valid button!");
   }
 }
+
 
 function displayTasks() {
   console.log('Displaying tasks');
@@ -67,8 +69,15 @@ function handleEdit() {
   console.log("Editing project...");
 }
 
-function handleAdd() {
+// Variables for the handleAdd function
+
+const projectTasks = {};
+
+function handleAdd(elementID) {
   console.log("Adding something...");
+  console.log(projectTasks[elementID]);
+  
+  
 }
 
 export function createTaskElement(taskName) {

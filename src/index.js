@@ -1,18 +1,20 @@
 import './styles/fontsAndReset.css';
 import './styles/styles.css';
-import { displayAddProjectForm } from './scripts/formHandling';
+import { displayForm } from './scripts/formHandling';
+import { createProjectElement } from './scripts/project';
 import { handleFormSubmit } from './scripts/formHandling';
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
   const projects = document.getElementById("projects");
-  const form = document.querySelector('#projectForm'); 
+  const projectForm = document.querySelector('#projectForm'); 
   const addProjectIcon = document.getElementById("addProjectIcon");
 
-  form.addEventListener("submit",(event) => handleFormSubmit(event))
-  addProjectIcon.addEventListener("click", displayAddProjectForm);
-
+  createProjectElement('Home');
+  projectForm.addEventListener("submit",(event) => handleFormSubmit(event,"projectForm"))
+  addProjectIcon.addEventListener("click", ()=>displayForm('projectForm'));
+  
 });
 
   

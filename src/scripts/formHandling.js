@@ -2,13 +2,14 @@ import { createProjectElement } from "./project";
 
 // Getting the important elements from the HTML
 
-const popup = document.querySelector(".pop-up");
-const closeButton = document.querySelector('#closeProjectForm');
+
 
 // Displays and adds event listeners to hide the add project form
 export function displayForm(formName) {
-    let projectPopUp = document.getElementById(formName);
-    projectPopUp.style.display = 'block';
+    let popup = document.getElementById(formName);
+const closeButton = popup.querySelector('.close');
+
+    popup.style.display = 'block';
     window.addEventListener("click", (event) => {
         if (event.target === popup) {
           popup.style.display = "none";

@@ -1,6 +1,8 @@
 import deleteIcon from "../img/delete.svg";
 import editIcon from "../img/edit.svg";
 import addIcon from "../img/add.svg";
+import { createTaskElement } from "./task";
+import { displayForm } from "./formHandling";
 
 const projects = document.getElementById("projects");
 
@@ -75,11 +77,6 @@ const projectTasks = {};
 
 function handleAdd(elementID) {
   console.log("Adding something...");
-  console.log(projectTasks[elementID]);
-  
-  
+  displayForm('taskForm');
 }
 
-export function createTaskElement(taskName) {
-
-}

@@ -1,10 +1,10 @@
 import deleteIcon from "../img/delete.svg";
 import editIcon from "../img/edit.svg";
 import addIcon from "../img/add.svg";
-import { createTaskElement } from "./task";
 import { displayForm } from "./formHandling";
 
 const projects = document.getElementById("projects");
+export let currentProjectID = null;
 
 export function createProjectElement(projectName) {
   const projectId = crypto.randomUUID();
@@ -76,7 +76,9 @@ function handleEdit() {
 const projectTasks = {};
 
 function handleAdd(elementID) {
-  console.log("Adding something...");
+  
   displayForm('taskForm');
+  
+  currentProjectID = elementID;
 }
 

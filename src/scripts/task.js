@@ -1,30 +1,29 @@
 import deleteIcon from "../img/delete.svg";
 import editIcon from "../img/edit.svg";
-import addIcon from "../img/add.svg";
+import { currentProjectID } from "./project";
 
-const projects = document.getElementById("projects");
 
-export function createProjectElement(projectName) {
-  const projectId = crypto.randomUUID();
-  const project = document.createElement("div");
-  project.id = projectId;
-  project.className = "project";
+export function createTaskElement(taskName) {
+  const parentProject = document.getElementById(currentProjectID);
+  const taskId = crypto.randomUUID();
+  const task = document.createElement("div");
+  task.id = taskId;
+  task.className = "task";
 
-  project.innerHTML = `<div class="project-header">
-      <h2></h2>
-      <div class="project-header-icons">
+  task.innerHTML = `<div class="task-header">
+      <h3></h3>
+      <div class="task-header-icons">
         <img src="${deleteIcon}" alt="delete icon" class="delete icon" data-action="delete">
         <img src="${editIcon}" alt="edit icon" class="edit icon" data-action="edit">
-        <img src="${addIcon}" alt="add icon" class="add icon" data-action="add">
       </div>
     </div>`;  
 
   // Safely insert the task name to avoid XSS
-  project.querySelector("h2").textContent = projectName;
+  task.querySelector("h3").textContent = taskName;
   // Add one event listener to the icon container
-  const iconContainer = project.querySelector(".project-header-icons");
-  iconContainer.addEventListener("click", (event) => addFunctionality(event, projectId));
-  projects.appendChild(project);
+  const iconContainer = task.querySelector(".task-header-icons");
+  iconContainer.addEventListener("click", (event) => addFunctionality(event, taskId));
+  parentProject.appendChild(task);
 }
 
 // Calls a method depending on the img clicked
@@ -63,6 +62,3 @@ function handleAdd() {
   console.log("Adding something...");
 }
 
-export function createTaskElement(taskName) {
-
-}

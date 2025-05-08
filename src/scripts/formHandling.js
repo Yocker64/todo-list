@@ -1,10 +1,11 @@
 import { createProjectElement } from "./project";
+import { createTaskElement } from "./task";
 
 // Getting the important elements from the HTML
 
 
 
-// Displays and adds event listeners to hide the add project form
+// Displays and adds event listeners to hide the addProject/addTask form
 export function displayForm(formName) {
     let popup = document.getElementById(formName);
 const closeButton = popup.querySelector('.close');
@@ -21,19 +22,30 @@ const closeButton = popup.querySelector('.close');
 }
 
 // Adds new project to the side bar when button is pressed
-export function handleFormSubmit(event,formName) {
-    let projectPopUp = document.getElementById(formName);
+export function handleProjectFormSubmit(event) {
+    let projectPopUp = document.getElementById("projectForm");
 
     event.preventDefault(); // Prevenst page from reloading when the submit button is pressed
     let projectName = document.getElementById('projectName');
     let projectDueDate = document.getElementById("projectDueDate");
     createProjectElement(projectName.value);
     projectName.value = '';
+  
     projectDueDate.value = '';
     projectPopUp.style.display = 'none';
 }
 
+export function handleTaskFormSubmit(event,parentID) {
+  let taskPopUp = document.getElementById('taskForm');
 
+  event.preventDefault(); // Prevenst page from reloading when the submit button is pressed
+  let taskName = document.getElementById('taskName');
+  let taskDueDate = document.getElementById("taskDueDate");
+  createTaskElement(taskName.value,parentID);
+  taskName.value = '';
+  taskDueDate.value = '';
+  taskPopUp.style.display = 'none';
+}
 
 // const form = document.getElementById("taskForm");
 

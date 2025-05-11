@@ -3,7 +3,7 @@ import editIcon from "../img/edit.svg";
 import { currentProjectID, projectTasks, displayTasks } from "./project";
 
 
-export function createTaskElement(taskName,taskDesc, taskDueDate) {
+export function createTaskElement(taskName,taskDesc, taskDueDate, importance) {
 
 
   const taskId = crypto.randomUUID();
@@ -15,7 +15,9 @@ export function createTaskElement(taskName,taskDesc, taskDueDate) {
       <h3></h3>
       <p class='taskDesc'></p>
       <p class='taskDueDate'></p>
+      <p class = 'importance'></p>
       <div class="task-icons">
+      <p class ='status'>Not Done</p>
         <img src="${deleteIcon}" alt="delete icon" class="delete icon" data-action="delete">
         <img src="${editIcon}" alt="edit icon" class="edit icon" data-action="edit">
       </div>`;  
@@ -23,7 +25,12 @@ export function createTaskElement(taskName,taskDesc, taskDueDate) {
   // Safely insert the task name to avoid XSS
   task.querySelector("h3").textContent = taskName;
   task.querySelector('.taskDesc').textContent =taskDesc;
-  task.querySelector('.taskDueDate').textContent = taskDueDate
+  task.querySelector('.taskDueDate').textContent = taskDueDate;
+  task.querySelector('.importance').textContent = importance
+
+  let status = task.querySelector('.status');
+  status.style.backgroundColor = "red";
+  status.addEventListener('click',()=>changeStatus(status));
   // Add one event listener to the icon container
   const iconContainer = task.querySelector(".task-icons");
   iconContainer.addEventListener("click", (event) => addFunctionality(event, taskId));
@@ -63,3 +70,12 @@ function handleEdit() {
 
  
 
+function changeStatus(statusDiv) {
+  if (statusDiv.innerText == "Not Done") {
+    statusDiv.style.backgroundColor = 'green'
+    statusDiv.textContent = "Done"
+  }else{
+    statusDiv.style.backgroundColor = "red";
+    statusDiv.textContent = "Not Done"
+  }
+}

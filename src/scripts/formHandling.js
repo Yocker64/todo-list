@@ -40,7 +40,8 @@ export function handleTaskFormSubmit(event) {
   let taskName = document.getElementById('taskName');
   let taskDueDate = document.getElementById("taskDueDate");
   let taskDesc  = document.getElementById("taskDesc");
-  createTaskElement(taskName.value,taskDesc.value, taskDueDate.value);
+  let taskImportance = document.getElementById("importance");
+  createTaskElement(taskName.value,taskDesc.value, taskDueDate.value, taskImportance.value);
   taskName.value = '';
   taskDesc.value = '';
   taskDueDate.value = '';

@@ -155,7 +155,7 @@ h2{
     border: 1px solid black;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1rem) );
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1rem) );
     gap: 2rem;
     padding: 3rem;
     border-radius: 4px;
@@ -169,4 +169,38 @@ h2{
   border: 1px solid black;
   max-height: 300px;
   justify-content: space-between;
+  border-radius: 5px;
+  box-shadow: 6px 6px rgb(121, 116, 116);
+  transition: 0.5s ease;
+}
+
+.task:hover{
+  box-shadow: 6px 6px rgb(75, 72, 72);
+  border: 2px solid gold;
+}
+
+.task-icons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-icons>img{
+  height: 30px;
+  flex: 1;
+}
+
+.task>h3{
+  font-size: 1.6rem;
+  text-align: center;
+  background-color: rgb(252, 109, 252);
+}
+
+.status{
+  flex: 3;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  padding: 12px;
 }

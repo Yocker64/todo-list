@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   createProjectElement('Home');
   projectForm.addEventListener("submit",(event) => handleProjectFormSubmit(event))
   addProjectIcon.addEventListener("click", ()=>displayForm('projectForm'));
-  taskForm.addEventListener("submit",(event)=>handleTaskFormSubmit(event,currentProjectID));
+  taskForm.addEventListener("submit",(event)=>handleTaskFormSubmit(event));
 });
 
   

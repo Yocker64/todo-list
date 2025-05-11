@@ -6,6 +6,9 @@
     <title>Todo List</title>
   </head>
   <body>
+
+
+
     <div id="content">
       <div id="sidebar">
         <div id="projects">
@@ -21,6 +24,7 @@
         </div>
       </div>
       <div id="board"></div>
+
     </div>
     <div class="pop-up" id="projectForm"> 
       <form action="" >
@@ -35,16 +39,7 @@
             placeholder="Very important project"form
           />
         </div>
-        <div class="form-row">
-          <label for="projectDueDate">Due date*</label>
-          <input
-            type="date"
-            name="projectDueDate"
-            id="projectDueDate"
-            required
-            placeholder="12/24/2024"
-          />
-        </div>
+        
         <div class="form-row button-row">
           <button id="addProject" class="add button">Add Project</button>
           <button id="closeProjectForm" class="close button">Cancel</button>
@@ -53,6 +48,8 @@
     </div>
 
     <div class="pop-up" id="taskForm"> 
+      <div class="desc"></div>
+      <div class="dueDate"></div>
       <form action="" >
         <legend>Task Info</legend>
         <div class="form-row">
@@ -64,6 +61,10 @@
             required
             placeholder="Cool Task"form
           />
+        </div>
+        <div class="form-row">
+          <label for="taskDesc">Description:</label>
+          <input type="text", name="taskDesc" id="taskDesc" placeholder="Feed the cat">
         </div>
         <div class="form-row">
           <label for="taskDueDate">Due date*</label>

@@ -1,29 +1,34 @@
 import deleteIcon from "../img/delete.svg";
 import editIcon from "../img/edit.svg";
-import { currentProjectID } from "./project";
+import { currentProjectID, projectTasks, displayTasks } from "./project";
 
 
-export function createTaskElement(taskName) {
-  const parentProject = document.getElementById(currentProjectID);
+export function createTaskElement(taskName,taskDesc, taskDueDate) {
+
+
   const taskId = crypto.randomUUID();
   const task = document.createElement("div");
   task.id = taskId;
   task.className = "task";
 
-  task.innerHTML = `<div class="task-header">
+  task.innerHTML = `
       <h3></h3>
-      <div class="task-header-icons">
+      <p class='taskDesc'></p>
+      <p class='taskDueDate'></p>
+      <div class="task-icons">
         <img src="${deleteIcon}" alt="delete icon" class="delete icon" data-action="delete">
         <img src="${editIcon}" alt="edit icon" class="edit icon" data-action="edit">
-      </div>
-    </div>`;  
+      </div>`;  
 
   // Safely insert the task name to avoid XSS
   task.querySelector("h3").textContent = taskName;
+  task.querySelector('.taskDesc').textContent =taskDesc;
+  task.querySelector('.taskDueDate').textContent = taskDueDate
   // Add one event listener to the icon container
-  const iconContainer = task.querySelector(".task-header-icons");
+  const iconContainer = task.querySelector(".task-icons");
   iconContainer.addEventListener("click", (event) => addFunctionality(event, taskId));
-  parentProject.appendChild(task);
+  projectTasks[currentProjectID].push(task);
+  displayTasks(currentProjectID)
 }
 
 // Calls a method depending on the img clicked
@@ -41,24 +46,20 @@ function addFunctionality(event,elementID) {
     case "edit":
       handleEdit();
       break;
-    case "add":
-      handleAdd();
-      break;
+
     default:
       alert("This is not a valid button!");
   }
 }
 
-function handleDelete(projectID) {
+function handleDelete(taskID) {
   console.log("Deleting project...");
-  document.getElementById(projectID).remove();
+  document.getElementById(taskID).remove();
 }
 
 function handleEdit() {
   console.log("Editing project...");
 }
 
-function handleAdd() {
-  console.log("Adding something...");
-}
+ 
 

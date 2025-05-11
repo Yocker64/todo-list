@@ -4,11 +4,15 @@ import addIcon from "../img/add.svg";
 import { displayForm } from "./formHandling";
 
 const projects = document.getElementById("projects");
+const board = document.getElementById('board');
+export let projectTasks = {};
 export let currentProjectID = null;
 
 export function createProjectElement(projectName) {
   const projectId = crypto.randomUUID();
   const project = document.createElement("div");
+  projectTasks[projectId] = [];
+
   project.id = projectId;
   projectTasks[projectId] = [];
   project.className = "project";
@@ -40,13 +44,13 @@ function addFunctionality(event,elementID) {
 
   switch (action) {
     case "displayTasks":
-      displayTasks();
+      displayTasks(elementID);
       break;
     case "delete":
       handleDelete(elementID);
       break;
     case "edit":
-      handleEdit();
+      handleEdit(elementID);
       break;
     case "add":
       handleAdd(elementID);
@@ -57,8 +61,15 @@ function addFunctionality(event,elementID) {
 }
 
 
-function displayTasks() {
+export function displayTasks(elementID) {
+  currentProjectID =  elementID;
   console.log('Displaying tasks');
+  board.innerHTML = ''; 
+  for (let i = 0; i < projectTasks[currentProjectID].length; i++) {
+    board.appendChild(projectTasks[currentProjectID][i]);
+    
+  }
+
   
 }
 
@@ -70,10 +81,8 @@ function handleDelete(projectID) {
 function handleEdit() {
   console.log("Editing project...");
 }
-
 // Variables for the handleAdd function
 
-const projectTasks = {};
 
 function handleAdd(elementID) {
   

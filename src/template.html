@@ -48,8 +48,6 @@
     </div>
 
     <div class="pop-up" id="taskForm"> 
-      <div class="desc"></div>
-      <div class="dueDate"></div>
       <form action="" >
         <legend>Task Info</legend>
         <div class="form-row">
@@ -77,7 +75,7 @@
           />
         </div>
         <div class="form-row">
-          <label for="dateTask">Importance</label>
+          <label for="importance">Importance</label>
           <select name="importance" id="importance">
             <option value="Important">Important</option>
             <option value="Very Important">Very Important</option>
@@ -87,6 +85,48 @@
         <div class="form-row button-row">
           <button id="addTask" class="add button">Add Task</button>
           <button id="closeTaskForm" class="close button">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="pop-up" id="editTaskForm"> 
+      <form action="" >
+        <legend>Task Info</legend>
+        <div class="form-row">
+          <label for="taskName">Name*</label>
+          <input
+            type="text"
+            name="editTaskName"
+            id="editTaskName"
+            required
+            placeholder="Cool Task"form
+          />
+        </div>
+        <div class="form-row">
+          <label for="editTaskDesc">Description:</label>
+          <input type="text", name="editTaskDesc" id="editTaskDesc" placeholder="Feed the cat">
+        </div>
+        <div class="form-row">
+          <label for="editTaskDueDate">Due date*</label>
+          <input
+            type="date"
+            name="editTaskDueDate"
+            id="editTaskDueDate"
+            required
+            placeholder="12/24/2024"
+          />
+        </div>
+        <div class="form-row">
+          <label for="editImportance">Importance</label>
+          <select name="=editImportance" id="editImportance">
+            <option value="Important">Important</option>
+            <option value="Very Important">Very Important</option>
+            <option value="Very Very Very Important">Very Very Very Important</option>
+          </select>
+        </div>
+        <div class="form-row button-row">
+          <button id="editTask" class="add button">Add Task</button>
+          <button id="closeEditTaskForm" class="close button">Cancel</button>
         </div>
       </form>
     </div>

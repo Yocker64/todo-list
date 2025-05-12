@@ -1,7 +1,9 @@
 import deleteIcon from "../img/delete.svg";
 import editIcon from "../img/edit.svg";
+import { displayEditTaskForm } from "./formHandling";
 import { currentProjectID, projectTasks, displayTasks } from "./project";
 
+export let currentTaskID = null;
 
 export function createTaskElement(taskName,taskDesc, taskDueDate, importance) {
 
@@ -51,7 +53,7 @@ function addFunctionality(event,elementID) {
       handleDelete(elementID);
       break;
     case "edit":
-      handleEdit();
+      handleEdit(elementID);
       break;
 
     default:
@@ -60,12 +62,13 @@ function addFunctionality(event,elementID) {
 }
 
 function handleDelete(taskID) {
-  console.log("Deleting project...");
   document.getElementById(taskID).remove();
 }
 
-function handleEdit() {
+function handleEdit(taskID) {
   console.log("Editing project...");
+  displayEditTaskForm();
+  currentTaskID =  taskID;
 }
 
  

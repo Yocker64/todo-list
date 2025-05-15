@@ -1,7 +1,7 @@
 import { createProjectElement } from "./project";
 import { createTaskElement, currentTaskID } from "./task";
 import { createNoteElement } from "./note";
-
+import { format, compareAsc } from "date-fns";
 // Getting the important elements from the HTML
 
 // Displays and adds event listeners to hide the addProject/addTask form
@@ -45,7 +45,7 @@ export function handleTaskFormSubmit(event) {
   createTaskElement(
     taskName.value,
     taskDesc.value,
-    taskDueDate.value,
+    format(taskDueDate.value,"MMM/dd/yyyy"),
     taskImportance.value
   );
   taskName.value = "";
@@ -60,7 +60,7 @@ export function handleEditTaskForm(event) {
   let editTaskPopUp = document.getElementById("editTaskForm");
   event.preventDefault(); // Prevenst page from reloading when the submit button is pressed
   let editTaskName = document.getElementById("editTaskName").value;
-  let editTaskDueDate = document.getElementById("editTaskDueDate").value;
+  let editTaskDueDate = format(document.getElementById("editTaskDueDate").value,"MM/dd/yyyy");
   let editTaskDesc = document.getElementById("editTaskDesc").value;
   let editTaskImportance = document.getElementById("editImportance").value;
 

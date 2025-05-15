@@ -3,6 +3,7 @@ import editIcon from "../img/edit.svg";
 import addIcon from "../img/add.svg";
 import { displayForm } from "./formHandling";
 
+
 const projects = document.getElementById("projects");
 const board = document.getElementById('board');
 export let projectTasks = {};

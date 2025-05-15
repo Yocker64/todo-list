@@ -1,5 +1,6 @@
-import { createProjectElement, currentProjectID } from "./project";
+import { createProjectElement } from "./project";
 import { createTaskElement, currentTaskID } from "./task";
+import { createNoteElement } from "./note";
 
 // Getting the important elements from the HTML
 
@@ -53,21 +54,6 @@ export function handleTaskFormSubmit(event) {
   taskPopUp.style.display = "none";
 }
 
-export function displayEditTaskForm() {
-  let popup = document.getElementById("editTaskForm");
-
-  const closeButton = popup.querySelector(".close");
-
-  popup.style.display = "block";
-  window.addEventListener("click", (event) => {
-    if (event.target === popup) {
-      popup.style.display = "none";
-    }
-  });
-  closeButton.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-}
 
 export function handleEditTaskForm(event) {
 
@@ -90,4 +76,20 @@ export function handleEditTaskForm(event) {
   editTaskDesc = "";
   editTaskDueDate = "";
   editTaskPopUp.style.display = "none";
+}
+
+export function handleNoteForm(event) {
+  let popUp = document.getElementById("noteForm");
+
+  event.preventDefault(); // Prevenst page from reloading when the submit button is pressed
+  let noteName = document.getElementById("noteName");
+  let noteDesc = document.getElementById("noteDesc");
+  createNoteElement(
+    noteName.value,
+    noteDesc.value,
+
+  );
+  taskName.value = "";
+  taskDesc.value = "";
+  popUp.style.display = "none";
 }

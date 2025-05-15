@@ -14,7 +14,7 @@ export function createProjectElement(projectName) {
   projectTasks[projectId] = [];
 
   project.id = projectId;
-  projectTasks[projectId] = [];
+  projectTasks[projectId] = {};
   project.className = "project";
 
   project.innerHTML = `<div class="project-header">
@@ -62,20 +62,18 @@ function addFunctionality(event,elementID) {
 
 
 export function displayTasks(elementID) {
-  currentProjectID =  elementID;
+  
   console.log('Displaying tasks');
   board.innerHTML = ''; 
-  for (let i = 0; i < projectTasks[currentProjectID].length; i++) {
-    board.appendChild(projectTasks[currentProjectID][i]);
-    
-  }
-
-  
+  for(let key in projectTasks[elementID]){
+    board.appendChild(projectTasks[elementID][key])
 }
-
+}
 function handleDelete(projectID) {
   console.log("Deleting project...");
   document.getElementById(projectID).remove();
+  
+  delete projectTasks[projectID]
 }
 
 function handleEdit() {

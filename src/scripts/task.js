@@ -1,6 +1,6 @@
 import deleteIcon from "../img/delete.svg";
 import editIcon from "../img/edit.svg";
-import { displayEditTaskForm } from "./formHandling";
+import { displayForm } from "./formHandling";
 import { currentProjectID, projectTasks, displayTasks } from "./project";
 
 export let currentTaskID = null;
@@ -36,12 +36,12 @@ export function createTaskElement(taskName,taskDesc, taskDueDate, importance) {
   // Add one event listener to the icon container
   const iconContainer = task.querySelector(".task-icons");
   iconContainer.addEventListener("click", (event) => addFunctionality(event, taskId));
-  projectTasks[currentProjectID].push(task);
+  projectTasks[currentProjectID][taskId] = task;
   displayTasks(currentProjectID)
 }
 
 // Calls a method depending on the img clicked
-function addFunctionality(event,elementID) {
+ function addFunctionality(event,elementID) {
   const imgButton = event.target.closest("img");
   // Just in case; you never know.
   if (!imgButton) return;
@@ -63,11 +63,12 @@ function addFunctionality(event,elementID) {
 
 function handleDelete(taskID) {
   document.getElementById(taskID).remove();
+  delete projectTasks[currentProjectID][taskID]
 }
 
 function handleEdit(taskID) {
   console.log("Editing project...");
-  displayEditTaskForm();
+  displayForm("editTaskForm");
   currentTaskID =  taskID;
 }
 

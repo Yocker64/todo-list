@@ -20,7 +20,11 @@
           
         </div>
         <div id="notes">
-          <h1><u>Notes</u></h1>
+          <div class="projects-header">
+            <h1><u>Notes</u></h1>
+            <img src="img/add.svg" alt="add note" id="addNoteIcon">
+          </div>
+
         </div>
       </div>
       <div id="board"></div>
@@ -127,6 +131,32 @@
         <div class="form-row button-row">
           <button id="editTask" class="add button">Add Task</button>
           <button id="closeEditTaskForm" class="close button">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="pop-up" id="noteForm"> 
+      <form action="" >
+        <legend>Note Info</legend>
+        <div class="form-row">
+          <label for="noteName">Name*</label>
+          <input
+            type="text"
+            name="noteName"
+            id="noteName"
+            required
+            placeholder="Cool Note"form
+          />
+        </div>
+        <div class="form-row">
+          <label for="noteDesc">Description:</label>
+          <input type="text", name="noteDesc" id="noteDesc" placeholder="Dear diary...">
+        </div>
+       
+        <div class="form-row button-row">
+          <button id="addNote" class="add button">Add Task</button>
+          <button id="closeNoteForm" class="close button">Cancel</button>
         </div>
       </form>
     </div>
